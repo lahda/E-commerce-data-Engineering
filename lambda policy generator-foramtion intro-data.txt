@@ -1,0 +1,79 @@
+lambda policy generator to add ecommerce-order-generator: 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:PutObject"
+        ],
+        "Resource": "arn:aws:s3:::shopfast-ecommerce-data/*"
+      }
+    ]
+  }
+ 
+Lambda policy processed to add to ecommerce-order-processor:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowReadRawData",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::shopfast-ecommerce-data/raw/*"
+    },
+    {
+      "Sid": "AllowWriteProcessedData",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::shopfast-ecommerce-data/processed/*"
+    }
+  ]
+}
+
+
+Nom de la regle eventbridge: s3-raw-to-lambda-processing
+
+Event pattern a coller dans Eventbridge:
+
+{
+  "source": ["aws.s3"],
+  "detail-type": ["Object Created"],
+  "detail": {
+    "bucket": {
+      "name": ["shopfast-ecommerce-data"]
+    },
+    "object": {
+      "key": [{
+        "prefix": "raw/"
+      }]
+    }
+  }
+}
+
+Activer input transformation. Et choisissez l'option input transformer
+Au niveau sample event/Event payload,par .
+Au niveau input path, collez-ceci:
+{
+  "bucketName": "$.detail.bucket.name",
+  "objectKey": "$.detail.object.key"
+}
+Au niveau de Template, collez ceci:
+{
+  "Records": [{
+    "s3": {
+      "bucket": {
+        "name": "<bucketName>"
+      },
+      "object": {
+        "key": "<objectKey>"
+      }
+    }
+  }]
+}
+
+
