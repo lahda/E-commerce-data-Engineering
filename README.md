@@ -2,17 +2,6 @@
 
 Ce dépôt contient un projet de démonstration pour une architecture de traitement de données e‑commerce basée sur des fonctions AWS Lambda et un bucket S3. Il fournit un générateur de commandes (lambda) qui produit des fichiers JSON Lines dans un préfixe raw/ et un processeur (lambda) qui consomme ces fichiers, les enrichit et écrit des fichiers traités dans processed/.
 
-## Architecture
-
-L'image d'architecture sera affichée automatiquement si elle est ajoutée au dépôt. Placez l'image d'architecture à l'un des emplacements suivants pour qu'elle soit intégrée automatiquement :
-
-- ./Ecommerce order Data Engineering.drawio.png
-
-Exemple d'inclusion (déjà présent dans ce README) :
-
-![Architecture de la solution](./Ecommerce order Data Engineering.drawio.png)
-
-Si l'image n'existe pas encore, ce lien fera office de placeholder et n'affichera rien jusqu'à ce que le fichier soit ajouté.
 
 ## Composants principaux
 
