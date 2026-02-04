@@ -6,12 +6,11 @@ Ce dépôt contient un projet de démonstration pour une architecture de traitem
 
 L'image d'architecture sera affichée automatiquement si elle est ajoutée au dépôt. Placez l'image d'architecture à l'un des emplacements suivants pour qu'elle soit intégrée automatiquement :
 
-- ./docs/architecture.png
-- ./architecture.png
+- ./Ecommerce order Data Engineering.drawio.png
 
 Exemple d'inclusion (déjà présent dans ce README) :
 
-![Architecture de la solution](./docs/architecture.png)
+![Architecture de la solution](./Ecommerce order Data Engineering.drawio.png)
 
 Si l'image n'existe pas encore, ce lien fera office de placeholder et n'affichera rien jusqu'à ce que le fichier soit ajouté.
 
